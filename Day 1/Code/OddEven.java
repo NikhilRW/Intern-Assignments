@@ -13,6 +13,6 @@ public class OddEven {
             System.out.println("Odd Number");
         }
         // Using Ternary Operator
-        System.out.println(a%2==0?"Even Number":"Odd Number");
+        // System.out.println(a%2==0?"Even Number":"Odd Number");
     }
 }
