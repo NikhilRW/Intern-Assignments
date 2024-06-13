@@ -14,19 +14,25 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class SecondActivity extends AppCompatActivity {
-    TextView textView1,textView2,textView3;
+    TextView textView1,textView2,textView3,textView4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.second_activity);
-        textView1=findViewById(R.id.textView5);
-        textView2=findViewById(R.id.textView6);
-        textView3=findViewById(R.id.textView7);
+        Button button = findViewById(R.id.exit);
+        textView1=findViewById(R.id.usernameresult);
+        textView2=findViewById(R.id.nameresult);
+        textView3=findViewById(R.id.emailresult);
+        textView4=findViewById(R.id.genderresult);
         Intent intent = getIntent();
         textView1.setText("Name : "+intent.getStringExtra("name"));
-        textView2.setText("Password : "+intent.getStringExtra("password"));
-        textView3.setText("Gender : "+intent.getStringExtra("gender"));
+        textView2.setText("Username : "+intent.getStringExtra("username"));
+        textView3.setText("Email : "+intent.getStringExtra("email"));
+        textView4.setText("Gender : "+intent.getStringExtra("gender"));
+        button.setOnClickListener(v->{
+            finishAffinity();
+        });
 
     }
 }

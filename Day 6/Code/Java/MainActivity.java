@@ -1,17 +1,12 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,7 +16,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
+    EditText username,email,password,confirmpassword,name;
+    RadioGroup genderSelect;
+    CheckBox agreeCheckBox;
+    Button signup,login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,38 +31,46 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         Intent intent = new Intent(MainActivity.this,SecondActivity.class);
-        EditText editText =findViewById(R.id.editTextText);
-        EditText editText3 =findViewById(R.id.editTextTextPassword);
-        TextView textView =findViewById(R.id.textView4);
-        CheckBox checkBox = findViewById(R.id.checkBox);
-        RadioGroup radioGroup =findViewById(R.id.radioGroup);
-        Button button = findViewById(R.id.button4);
-        checkBox.setOnClickListener(v->{
-            if(!checkBox.isChecked()){
-                button.setEnabled(false);
+          username=findViewById(R.id.username);
+          password=findViewById(R.id.password);
+          name=findViewById(R.id.name);
+        agreeCheckBox = findViewById(R.id.agreeCheckBox);
+        confirmpassword = findViewById(R.id.confirmpassword);
+        genderSelect =findViewById(R.id.radioGroup);
+        signup = findViewById(R.id.signup);
+        email = findViewById(R.id.email);
+        agreeCheckBox.setOnClickListener(v->{
+            if(!agreeCheckBox.isChecked()){
+                signup.setEnabled(false);
             }
             else{
-                button.setEnabled(true);
+                signup.setEnabled(true);
             }
         });
 
-        button.setOnClickListener(v->{
-            String password = editText3.getText().toString();
-            String username =editText.getText().toString();
-            RadioButton radioButton= findViewById(radioGroup.getCheckedRadioButtonId());
-            String gender = radioButton.getText().toString();
-            if(password.isEmpty()||username.isEmpty()){
-                Toast.makeText(this, "Please Fill Username And Password", Toast.LENGTH_SHORT).show();
+        signup.setOnClickListener(v->{
+            String passwordstr = password.getText().toString();
+            String usernamestr =username.getText().toString();
+            String namestr =name.getText().toString();
+            String emailstr =email.getText().toString();
+            String confirmpasswordstr =confirmpassword.getText().toString();
+            RadioButton radioButton= findViewById(genderSelect.getCheckedRadioButtonId());
+            if(usernamestr.isEmpty()||namestr.isEmpty()||passwordstr.isEmpty()||confirmpasswordstr.isEmpty()||emailstr.isEmpty()|| radioButton == null){
+                Toast.makeText(this, "Please Fill All Fields", Toast.LENGTH_SHORT).show();
                 return;
             }
-            if(!checkBox.isChecked()){
+            String gender = radioButton.getText().toString();
+            if(!passwordstr.equals(confirmpasswordstr)){
+                Toast.makeText(this, "Confirm Password Not Matched", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(!agreeCheckBox.isChecked()){
                 Toast.makeText(this, "Please Agree Terms And Condition", Toast.LENGTH_SHORT).show();
                 return;
             }
-            String message ="User Name : " +editText.getText().toString()+" \n Password : "+editText3.getText().toString();
-            textView.setText(message);
-            intent.putExtra("name",username);
-            intent.putExtra("password",password);
+            intent.putExtra("name",namestr);
+            intent.putExtra("username",usernamestr);
+            intent.putExtra("email",emailstr);
             intent.putExtra("gender",gender);
             startActivity(intent);
         });

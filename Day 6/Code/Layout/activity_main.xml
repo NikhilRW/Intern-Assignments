@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="#E3FCFA"
+    android:background="@drawable/mesh5"
     android:gravity="center_horizontal|center_vertical"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -18,9 +18,139 @@
         android:layout_marginBottom="10dp"
         android:text="Hello World"
         android:textAlignment="center"
-        android:visibility="gone"
         android:textColor="#000000"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="79dp"
+        android:layout_height="78dp"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/roundlogo" />
+
+    <LinearLayout
+        android:layout_width="371dp"
+        android:layout_height="542dp"
+        android:background="@drawable/roundedcorners"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="344dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="Enter Your Name"
+            android:textAlignment="textStart"
+            android:textColorHint="#42A5F5"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="344dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="Enter Your Username"
+            android:inputType="text"
+            android:textColorHint="#2196F3"
+            android:textColorLink="#000000" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="344dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="Enter Your Email"
+            android:inputType="text"
+            android:textColorHint="#2196F3" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="344dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="Enter Your Password"
+            android:inputType="textPassword"
+            android:textColorHint="#2196F3" />
+
+        <EditText
+            android:id="@+id/confirmpassword"
+            android:layout_width="344dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="Confirm Your Password"
+            android:inputType="text"
+            android:shadowColor="#000000"
+            android:textColorHint="#2196F3" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Select Gender"
+            android:textAlignment="textStart"
+            android:textColorHint="#03A9F4"
+            android:textColorLink="#03A9F4"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="338dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:layout_width="164dp"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:textSize="18dp" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textSize="18dp" />
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/agreeCheckBox"
+            android:layout_width="345dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="Agree Terms And Condition"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            android:layout_width="345dp"
+            android:layout_height="68dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/signup"
+                android:layout_width="146dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/roundedbtn"
+                android:fontFamily="@font/fredoka_one"
+                android:text="SignUp"
+                android:textColorLink="#26A69A"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/button2"
@@ -29,8 +159,8 @@
         android:background="#00BCD4"
         android:fontFamily="monospace"
         android:text="Click Me"
-        android:visibility="gone"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:visibility="gone" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -58,77 +188,5 @@
         android:scaleType="fitCenter"
         android:visibility="gone"
         app:srcCompat="@drawable/youtube" />
-
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="344dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="Enter Your name"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="339dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="Enter Your Password"
-        android:inputType="textPassword" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="338dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Select Gender"
-        android:textAlignment="textStart"
-        android:textSize="20sp" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="338dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="164dp"
-            android:layout_height="wrap_content"
-            android:text="Male" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Female" />
-    </RadioGroup>
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="345dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:text="Agree Terms And Condition" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="163dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="#52DFF1"
-        android:fontFamily="@font/amaranth"
-        android:text="Login"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="262dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="10dp"
-        android:textAlignment="center"
-        android:textSize="24sp" />
 
 </LinearLayout>
